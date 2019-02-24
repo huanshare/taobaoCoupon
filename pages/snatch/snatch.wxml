@@ -1,0 +1,23 @@
+<!--pages/snatch/snatch.wxml-->
+<view>
+  <view class="good_all" wx:if="{{goodList.length>0}}">
+    <view class="good_detail" wx:for="{{goodList}}" wx:key bindtap="showGoodDetail" data-Id="{{item.ID}}" data-GoodsID="{{item.GoodsID}}">
+      <view class='clear'>
+        <view class='good_img_area'>
+          <image src='{{item.Pic}}' class='good_img'></image>
+        </view>
+        <view class='good_desc'>
+          <view class="D_title" >{{item.D_title}}</view>
+          <view class="price_detail">
+            <view class="Org_Price">天猫价 ¥{{item.Org_Price}}</view>
+            <view class="Sales_num">已售{{item.Sales_num}}件</view>
+          </view>
+          <view class='coupon_area clear'>
+            <view class="Price">券后价 ¥{{item.Price}}</view>
+            <view class="Quan_price">{{item.Quan_price}}元券</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

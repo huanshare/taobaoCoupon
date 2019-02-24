@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/top100/top100",
+    "pages/snatch/snatch",
+    "pages/goodDetail/goodDetail",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "selectedColor": "#52ABFF",
+    "list": [
+      {
+        "pagePath": "pages/top100/top100",
+        "text": "人气榜",
+        "iconPath": "/asset/img/top100_black.png",
+        "selectedIconPath": "/asset/img/top100.png"
+      },
+      {
+        "pagePath": "pages/snatch/snatch",
+        "text": "疯抢榜",
+        "iconPath": "/asset/img/snatch_black.png",
+        "selectedIconPath": "/asset/img/snatch.png"
+      }
+    ]
+  }
+}
