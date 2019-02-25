@@ -1,2 +1,26 @@
 <!--pages/goodDetail/goodDetail.wxml-->
-<text>pages/goodDetail/goodDetail.wxml</text>
+<view>
+  <view class="good_all" wx:if="{{goodDetail!=null}}">
+    <view>
+      <view class='good_img_area'>
+        <image src='{{goodDetail.Pic}}' class='good_img'></image>
+      </view>
+      <view class='good_title_area'>
+        <view class='IsTmall' wx:if="{{goodDetail.IsTmall==1}}">天猫</view>
+        <view class='IsTmall' wx:else>淘宝</view>
+        <view class='D_title'>{{item.D_title}}</view>
+      </view>
+      <view class='good_desc'>
+        <view class="D_title" >{{item.D_title}}</view>
+        <view class="price_detail">
+          <view class="Org_Price">天猫价 ¥{{item.Org_Price}}</view>
+          <view class="Sales_num">已售{{item.Sales_num}}件</view>
+        </view>
+        <view class='coupon_area clear'>
+          <view class="Price">券后价 ¥{{item.Price}}</view>
+          <view class="Quan_price">{{item.Quan_price}}元券</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

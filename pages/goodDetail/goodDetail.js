@@ -1,18 +1,36 @@
 // pages/goodDetail/goodDetail.js
+
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goodDetail: {}//商品类表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var page = this;
+    var prodSubId = options.id;
+    app.post('api/detail.php?id=' + id, {},
+      function (res) {
+        if (res == null || res.data == null) {
+          app.logErrorMsg({
+            page: app.getCurrentPageUrlWithArgs(),
+            url: app.data.apiurl + 'api/detail.php',
+            msg: res.data.message
+          });
+          page.setData({ goodDetail:{} });
+          return false;
+        }
+        if (res.data!=null) {
+          page.setData({ goodDetail: res.data.result });
+        }
+      });
   },
 
   /**

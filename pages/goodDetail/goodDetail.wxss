@@ -1,1 +1,8 @@
 /* pages/goodDetail/goodDetail.wxss */
+.good_all{
+
+}
+.good_img_area{
+  width:375rpx;
+  height:375rpx;
+}
