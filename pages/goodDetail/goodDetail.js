@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
     var page = this;
-    var prodSubId = options.id;
+    var id = 18390538;//options.id;
     app.post('api/detail.php?id=' + id, {},
       function (res) {
         if (res == null || res.data == null) {
