@@ -13,7 +13,7 @@ Page({
     goodTitle: '',//宝贝标题
     goodId: '',
     taoKouLing:'',
-
+    taobaoId:'',
   },
 
   /**
@@ -39,7 +39,8 @@ Page({
                           quanLink: detail.Quan_link, 
                           goodImageUrl: detail.Pic, 
                           goodTitle: detail.D_title,
-                          goodId: detail.ID });
+                          goodId: detail.ID,
+                          taobaoId: detail.GoodsID });
         }
       });
   },
@@ -56,8 +57,11 @@ Page({
    */
   get_tol: function (e) {
     var page = this;
+    var quan_link = page.data.quanLink.replace(/[\\]/g, '');
+    var activityId = app.getQueryString('activityId',quan_link);
+    var returnUrl = 'https://uland.taobao.com/coupon/edetail?activityId=' + activityId + '&pid=mm_29143610_310100151_84258300085&itemId=' + page.data.taobaoId;
     app.post('api/taobao/tpwd.php?text=' + encodeURIComponent(page.data.goodTitle) 
-      + "&url=" + encodeURIComponent(page.data.quanLink.replace(/[\\]/g, ''))
+      + "&url=" + encodeURIComponent(returnUrl)
       + "&logoUrl=" + encodeURIComponent(page.data.goodImageUrl.replace(/[\\]/g, '')), {},
       function (res) {
         if (res == null || res.data == null) {

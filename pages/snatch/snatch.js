@@ -41,7 +41,7 @@ Page({
       return false;
     }
     wx.navigateTo({
-      url: '../goodDetail/goodDetail?ID=' + id
+      url: '../goodDetail/goodDetail?id=' + id
     });
   },
 
