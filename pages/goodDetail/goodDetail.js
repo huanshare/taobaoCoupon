@@ -7,7 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodDetail: {}//商品类表
+    goodDetail: {},//商品类表
+    quanLink: '',//优惠券URL
+    goodImageUrl: '',//宝贝图片URL
+    goodTitle: '',//宝贝标题
+    goodId: '',
+    taoKouLing:'',
+
   },
 
   /**
@@ -15,7 +21,7 @@ Page({
    */
   onLoad: function (options) {
     var page = this;
-    var id = 18390538;//options.id;
+    var id = options.id;
     app.post('api/detail.php?id=' + id, {},
       function (res) {
         if (res == null || res.data == null) {
@@ -27,8 +33,57 @@ Page({
           page.setData({ goodDetail:{} });
           return false;
         }
-        if (res.data!=null) {
-          page.setData({ goodDetail: res.data.result });
+        if (res.data != null && res.data.result!=null) {
+          var detail = res.data.result;
+          page.setData({ goodDetail: detail, 
+                          quanLink: detail.Quan_link, 
+                          goodImageUrl: detail.Pic, 
+                          goodTitle: detail.D_title,
+                          goodId: detail.ID });
+        }
+      });
+  },
+  /**
+   * 查看详情
+   */
+  return_back: function (e) {
+    wx.switchTab({
+      url: '../top100/top100',   //注意switchTab只能跳转到带有tab的页面，不能跳转到不带tab的页面
+    });
+  },
+  /**
+   * 查看详情
+   */
+  get_tol: function (e) {
+    var page = this;
+    app.post('api/taobao/tpwd.php?text=' + encodeURIComponent(page.data.goodTitle) 
+      + "&url=" + encodeURIComponent(page.data.quanLink.replace(/[\\]/g, ''))
+      + "&logoUrl=" + encodeURIComponent(page.data.goodImageUrl.replace(/[\\]/g, '')), {},
+      function (res) {
+        if (res == null || res.data == null) {
+          app.logErrorMsg({
+            page: app.getCurrentPageUrlWithArgs(),
+            url: app.data.apiurl + '/api/taobao/tpwd.php',
+            msg: res.data.message
+          });
+          page.setData({ taoKouLing: {} });
+          return false;
+        }
+        if (res.data != null) {
+          var detail = res.data.data;
+          page.setData({ taoKouLing: detail.model});
+          wx.setClipboardData({
+            data: detail.model,
+            success: function (res) {
+              wx.getClipboardData({
+                success: function (res) {
+                  wx.showToast({
+                    title: '请打开淘宝'
+                  })
+                }
+              })
+            }
+          });
         }
       });
   },
@@ -65,7 +120,16 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var page = this;
+    page.setData({ 
+      goodDetail: {},
+      quanLink: '',//优惠券URL
+      goodImageUrl: '',//宝贝图片URL
+      goodTitle: '',//宝贝标题
+      taoKouLing: '', });
+    var option = { id: page.data.goodId}
+    page.onLoad(option);
+    wx.stopPullDownRefresh();
   },
 
   /**

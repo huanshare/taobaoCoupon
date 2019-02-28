@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/goodDetail/goodDetail",
     "pages/top100/top100",
     "pages/snatch/snatch",
-    
+    "pages/goodDetail/goodDetail",
     "pages/index/index",
     "pages/logs/logs"
   ],

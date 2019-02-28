@@ -11,31 +11,51 @@
     </view>
     <view class='good_desc_area clear'>
       <view class="price_detail">
-        <view class='price_area'>
-          <view class="price_word">券后价 ¥ </view>
-          <view class='Price'>{{goodDetail.Price}}</view>
-        </view>
-       
+        <view class="Price">券后价 ¥{{goodDetail.Price}} </view>
+        <view class="Org_Price">天猫价 ¥{{goodDetail.Org_Price}}</view>
         <view class="Sales_num">已售{{goodDetail.Sales_num}}件</view>
       </view>
-      <view class='coupon_area clear'>
-          <view class="Org_Price">天猫价 ¥{{goodDetail.Org_Price}}</view>
+      <view class="price_differ_area">
+        <view class="price_differ_word">先领券再下单，此商品可省 </view>
+        <view class="price_differ"> ¥{{goodDetail.Org_Price-goodDetail.Price}}</view>
+        <view class="price_differ_word"> 元</view>
       </view>
-      <view class="Quan_price clear">
-        <view class='money'>
-          <view class='quan_area'>
-            <view class='Quan_price'>{{goodDetail.Quan_price}}</view>
-            <view> 元优惠券</view>
-          </view>
-          <view>
-            <view>使用期限:</view>
-            <view>123</view>
-          </view>
+      <view class='Introduce_area clear'>
+        <view class='Introduce_title'>
+          卖点推荐
         </view>
-        <view>
-          <view>立即领券</view>
+         <view class='Introduce clear'>¥{{goodDetail.Introduce}}</view>
+      </view>
+      <view class='better_change clear'>
+        <view class='better_change_title'>
+          精挑细选
         </view>
-        
+         <view class='better_show  clear'>
+            <view class="better_info">
+              <view class="xp change_img"></view>
+              <view class='change_img_title'>新品特价</view>
+              </view>
+            <view class="better_info">
+              <view class="xs change_img"></view>
+              <view class='change_img_title'>限时特卖</view>
+              </view>
+            <view class="better_info">
+              <view class="cx change_img"></view>
+              <view class='change_img_title'>诚信品牌</view>
+              </view>
+            <view class="better_info">
+                <view class="tj change_img"></view>
+                <view class='change_img_title'>人气推荐</view>
+                </view>
+            <view class="better_info">
+              <view class="by change_img"></view>
+              <view class='change_img_title'>全国包邮</view>
+              </view>
+         </view>
+      </view>
+      <view class="nbmenu clear">
+        <view class='return_back' bindtap='return_back'>返回首页</view>
+        <view class='tol_buy' data-text="{{taoKouLing}}" bindtap='get_tol'>淘口令购买</view>
       </view>
     </view>
   </view>

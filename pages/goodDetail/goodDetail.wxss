@@ -45,76 +45,157 @@ page {
     float: left;
 }
 .price_detail{
-  display:flex;                 
-  align-items:center;  
-}
-.price_area{
-  color: red;
-  float: left;
-  padding:10rpx 20rpx;
-  display:flex;                        
-  align-items:center;  
-}
-.price_word{
-    font-size: 25rpx;
-    line-height: 20rpx;
-    float: left;
-    
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  padding:20rpx;
 }
 .Price{
   display: block;
-  font-size: 35rpx;
-  line-height: 35rpx;
+  font-size: 40rpx;
+  line-height: 40rpx;
   float: left;
+  color: #f45454;
+  margin-right: 10rpx;
+}
+.Org_Price{
+  margin-left: 40rpx;
+  font-size: 25rpx;
+  color: #555555;
+  text-decoration: line-through;
+  padding-right: 10rpx;
+}
+.price_differ_area{
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 20rpx;
+}
+.price_differ_word{
+  float: left;
+}
+.price_differ{
+  float: left;
+  color: red;
+  font-size: 35rpx;
+  margin:0 10rpx;
 }
 .Sales_num{
   float: right;
   font-size: 25rpx;
   line-height: 25rpx;
   color: #666;
-  position:fixed;
-  right:20rpx;
-
+  margin-left: 50rpx;
 }
-.coupon_area{
-  padding:10rpx 20rpx;
-}
-.Quan_price_area{
+.Introduce_area,.better_change{
+  margin: 30rpx 20rpx;
   display: block;
-  position: absolute;
-  z-index: 1;
-  zoom: 1;
-  text-align: center;
-  background-image: url(http://cmsstatic.dataoke.com//wap_new/main/images/goods_quan.png?v=201902151532);
-  background-repeat:no;
-  background-size: cover;
+  border: 2rpx dashed #ffd4de;
+  width: 95%
 }
-.Org_Price{
+.Introduce_title,.better_change_title{
+    font-weight: normal;
+    color: #f8285c;
+    text-align: center;
+    border-bottom: 2rpx dashed #ffd4de;
+    background: #fff6f8;
+    opacity: .8;
+    padding: 1% 0;
+    font-size: 25rpx;
+}
+.Introduce{
+  padding: 10rpx;
   font-size: 25rpx;
-  line-height: 25rpx;
-  color: #666;
+  line-height: 40rpx;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display:block;
+  white-space: pre-line;
+  color:gray
+}
+.better_change {
+    margin: 3%;
+    border: 2rpx dashed #ffd4de;
+    display: block;
+    float: left
+}
+.better_change .better_show {
+    padding: 2%;
+    margin: 0 auto;
+    width: auto;
+}
+
+.better_info{
+  display: block;
   float: left;
+  width: auto;
+  margin:10rpx 25rpx;
+  text-align: center
 }
-.money{
+.better_info .change_img {
+    display: block;
+    width: 35rpx;
+    height: 35rpx;
+    margin: 0 auto;
+    background: url(http://m.zhnjw.com/static/jwap/images/better_change.png) no-repeat;
+    background-size: 220rpx auto;
+}
+.better_info .change_img_title {
+    margin-top: 10%;
+    font-size: 20rpx;
+    color: #999;
+}
+.better_info .xp {
+    background-position: 0 0;
+}
+.better_info .xs {
+    background-position: -33rpx 0;
+}
+.better_info .cx {
+    background-position: -73rpx 0;
+}
+.better_info .tj {
+    background-position: -111rpx 0;
+}
+.better_info .by {
+    background-position: -148rpx 0;
+}
+
+.nbmenu {
+    position: fixed;
+    width: 100%;
+    max-width: 750rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: -webkit-box;
+    z-index: 10000;
+    background: #FAFAFA;
+    color: #ffffff;
     font-size: 35rpx;
-    color: rgba(255,255,255,.6);
-    padding-top: 6%;
-    line-height: 70rpx;
-    position: relative;
-    z-index: 1;
-    zoom: 1;
-    left: 20rpx;
-    width:100%;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-.quan_area{
-    font-size: 16rpx;
-    font-weight: 600;
-    color: #fff;
+.return_back{
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: #FB874E;
+    text-align: center;
 }
-.Quan_price{
-  font-size: 40rpx;
-  position: relative;
-  z-index: 1;
-  zoom: 1;
-  top: 10rpx;
+.tol_buy{
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background: #f54d23;
+    text-align: center;
 }
