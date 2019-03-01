@@ -79,7 +79,7 @@ Page({
    */
   onPullDownRefresh: function () {
     var page = this;
-    page.setData({ page: 1 });
+    page.setData({ goodList: [],page: 1 });
     page.onLoad();
     wx.stopPullDownRefresh();
   },

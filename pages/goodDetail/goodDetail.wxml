@@ -1,4 +1,5 @@
 <!--pages/goodDetail/goodDetail.wxml-->
+ <wxs module="numberUtil" src="../../utils/util.wxs"></wxs>
 <view>
   <view class="good_all" wx:if="{{goodDetail!=null}}">
     <view class='good_img_area'>
@@ -17,7 +18,7 @@
       </view>
       <view class="price_differ_area">
         <view class="price_differ_word">先领券再下单，此商品可省 </view>
-        <view class="price_differ"> ¥{{goodDetail.Org_Price-goodDetail.Price}}</view>
+        <view class="price_differ"> ¥{{numberUtil.numberFormat(goodDetail.Org_Price-goodDetail.Price)}}</view>
         <view class="price_differ_word"> 元</view>
       </view>
       <view class='Introduce_area clear'>

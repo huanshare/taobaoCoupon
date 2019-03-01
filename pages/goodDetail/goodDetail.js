@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodDetail: {},//商品类表
+    goodDetail: null,//商品类表
     quanLink: '',//优惠券URL
     goodImageUrl: '',//宝贝图片URL
     goodTitle: '',//宝贝标题
@@ -126,7 +126,7 @@ Page({
   onPullDownRefresh: function () {
     var page = this;
     page.setData({ 
-      goodDetail: {},
+      goodDetail: null,
       quanLink: '',//优惠券URL
       goodImageUrl: '',//宝贝图片URL
       goodTitle: '',//宝贝标题
