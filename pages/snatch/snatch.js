@@ -28,7 +28,13 @@ Page({
           return false;
         }
         if (res.data.length > 0) {
-          page.setData({ goodList: res.data });
+          var newGoodList = page.data.goodList.concat(res.data)
+          page.setData({ goodList: newGoodList });
+        } else {
+          wx.showToast({
+            title: '就这些啦',
+            duration: 2000
+          })
         }
       });
   },
