@@ -25,7 +25,7 @@
         <view class='Introduce_title'>
           卖点推荐
         </view>
-         <view class='Introduce clear'>¥{{goodDetail.Introduce}}</view>
+         <view class='Introduce clear'>{{goodDetail.Introduce}}</view>
       </view>
       <view class='better_change clear'>
         <view class='better_change_title'>
