@@ -5,15 +5,10 @@
     <view class='good_img_area'>
       <image src='{{goodDetail.Pic}}' class='good_img'></image>
     </view>
-    <view class='good_title_area'>
-      <view class='IsTmall' wx:if="{{goodDetail.IsTmall==1}}">天猫</view>
-      <view class='IsTmall' wx:else>淘宝</view>
-      <view class='D_title'>{{goodDetail.D_title}}</view>
-    </view>
     <view class='good_desc_area clear'>
       <view class="price_detail">
         <view class="Price">券后价 ¥{{goodDetail.Price}} </view>
-        <view class="Org_Price">天猫价 ¥{{goodDetail.Org_Price}}</view>
+        <view class="Org_Price">原价 ¥{{goodDetail.Org_Price}}</view>
         <view class="Sales_num">已售{{goodDetail.Sales_num}}件</view>
       </view>
       <view class="price_differ_area">
@@ -56,7 +51,7 @@
       </view>
       <view class="nbmenu clear">
         <view class='return_back' bindtap='return_back'>返回首页</view>
-        <view class='tol_buy' data-text="{{taoKouLing}}" bindtap='get_tol'>淘口令购买</view>
+        <view class='tol_buy' data-text="{{taoKouLing}}" bindtap='get_tol'>点击领券</view>
       </view>
     </view>
   </view>

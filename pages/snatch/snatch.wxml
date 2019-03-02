@@ -9,7 +9,7 @@
         <view class='good_desc'>
           <view class="D_title" >{{item.D_title}}</view>
           <view class="price_detail">
-            <view class="Org_Price">天猫价 ¥{{item.Org_Price}}</view>
+            <view class="Org_Price">原价 ¥{{item.Org_Price}}</view>
             <view class="Sales_num">已售{{item.Sales_num}}件</view>
           </view>
           <view class='coupon_area clear'>

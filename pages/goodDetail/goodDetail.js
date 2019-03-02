@@ -13,8 +13,10 @@ Page({
     goodTitle: '',//宝贝标题
     goodId: '',
     taoKouLing:'',
-    taobaoId:'',
+    tbId:'',
     pId:'',
+    ulandUrl:'',
+    openAppMsg:'',
   },
 
   /**
@@ -37,12 +39,14 @@ Page({
         if (res.data != null && res.data.result!=null) {
           var detail = res.data.result;
           page.setData({ goodDetail: detail, 
-                          quanLink: detail.Quan_link, 
-                          goodImageUrl: detail.Pic, 
-                          goodTitle: detail.D_title,
-                          goodId: detail.ID,
-                          taobaoId: detail.GoodsID,
-                          pId: res.data.data.pId });
+            quanLink: detail.Quan_link, 
+            goodImageUrl: detail.Pic, 
+            goodTitle: detail.D_title,
+            goodId: detail.ID,
+            tbId: detail.GoodsID,
+            pId: res.data.data.pId,
+            ulandUrl: res.data.data.ulandUrl,
+            openAppMsg: res.data.data.openAppMsg});
         }
       });
   },
@@ -66,7 +70,7 @@ Page({
           wx.getClipboardData({
             success: function (res) {
               wx.showToast({
-                title: '请打开淘宝'
+                title: page.data.openAppMsg
               })
             }
           })
@@ -76,15 +80,15 @@ Page({
     }
     var quan_link = page.data.quanLink.replace(/[\\]/g, '');
     var activityId = app.getQueryString('activityId',quan_link);
-    var returnUrl = 'https://uland.taobao.com/coupon/edetail?activityId=' + activityId + '&pid=' + page.data.pId+'&itemId=' + page.data.taobaoId;
-    app.post('api/taobao/tpwd.php?text=' + encodeURIComponent(page.data.goodTitle) 
+    var returnUrl = page.data.ulandUrl+'?activityId=' + activityId + '&pid=' + page.data.pId+'&itemId=' + page.data.tbId;
+    app.post('api/tb/tpwd.php?text=' + encodeURIComponent(page.data.goodTitle) 
       + "&url=" + encodeURIComponent(returnUrl)
       + "&logoUrl=" + encodeURIComponent(page.data.goodImageUrl.replace(/[\\]/g, '')), {},
       function (res) {
         if (res == null || res.data == null) {
           app.logErrorMsg({
             page: app.getCurrentPageUrlWithArgs(),
-            url: app.data.apiurl + '/api/taobao/tpwd.php',
+            url: app.data.apiurl + '/api/tb/tpwd.php',
             msg: res.data.message
           });
           page.setData({ taoKouLing: {} });
@@ -99,7 +103,7 @@ Page({
               wx.getClipboardData({
                 success: function (res) {
                   wx.showToast({
-                    title: '请打开淘宝'
+                    title: page.data.openAppMsg
                   })
                 }
               })
