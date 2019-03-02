@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.6.0",
 	"appid": "wx26517a06a2a0fa30",
-	"projectname": "taobaoCoupon",
+	"projectname": "tbCoupon",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
